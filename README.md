@@ -1,7 +1,7 @@
 # VPaginator
 
 ## Sobre
-VPaginator é um compente para renderizar automaticamente suas tabelas (<table>) de acordo com as propriedades do objeto JSON da lista enviada, mas se quiser escolher os campos, fiquei a vontade também :D
+VPaginator é um compente para renderizar automaticamente tabelas HTML de acordo com as propriedades do objeto JSON da lista enviada, mas se quiser escolher os campos, fiquei a vontade também :D
 
 ## Instalando as dependências
 ```
