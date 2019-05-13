@@ -13,11 +13,13 @@
 <script>
 export default {
   name: 'VPaginator',
+
   data () {
     return {
       page: 0
     }
   },
+
   props: {
     list: {
       type: Array,
@@ -25,7 +27,8 @@ export default {
     },
     fields: {
       type: Array,
-      required: true
+      required: false,
+      default: undefined
     },
     rows: {
       type: Number,
@@ -33,6 +36,7 @@ export default {
       default: 5
     }
   },
+
   methods: {
     previousPage () {
       this.page--
@@ -43,13 +47,36 @@ export default {
     },
 
     renderFields (obj) {
+      if (this.fields !== undefined) {
+        return this.renderByArray(obj)
+      } else {
+        return this.renderByObj(obj)
+      }
+    },
+
+    renderByArray (obj) {
       let i = 0
       let renderText = ''
 
       this.fields.forEach(field => {
-        if (i !== 0) { renderText += ' - ' }
+        if (i !== 0) { renderText += ' / ' }
 
-        renderText += field.toUpperCase() + ': ' + this._.get(obj, field, 'Invalid Field')
+        renderText += field.toUpperCase() + ': ' + this._.get(obj, field, 'Field Inexistente')
+
+        i++
+      })
+
+      return renderText
+    },
+
+    renderByObj (obj) {
+      let i = 0
+      let renderText = ''
+
+      this._.forIn(obj, function (value, key) {
+        if (i !== 0) { renderText += ' / ' }
+
+        renderText += key.toUpperCase() + ': ' + value
 
         i++
       })
@@ -57,6 +84,7 @@ export default {
       return renderText
     }
   },
+
   computed: {
     pageCount () {
       let l = this.list.length

@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <VPaginator :list="itens" :rows="6" :fields="['id', 'nome']" />
+    <VPaginator :list="users" :rows="6" :fields="['id', 'name', 'username']"/>
   </div>
 </template>
 
@@ -10,34 +10,23 @@ import VPaginator from './components/VPaginator.vue'
 
 export default {
   name: 'app',
+
   components: {
     VPaginator
   },
+
   data () {
     return {
-      itens: [
-        { id: 1, nome: 'José Victor' },
-        { id: 2, nome: 'Nicholas Victor' },
-        { id: 3, nome: 'Dubs Victor' },
-        { id: 4, nome: 'Scrach Victor' },
-        { id: 5, nome: 'Devil Victor' },
-        { id: 6, nome: 'José Victor' },
-        { id: 7, nome: 'Nicholas Victor' },
-        { id: 8, nome: 'Dubs Victor' },
-        { id: 9, nome: 'Scrach Victor' },
-        { id: 10, nome: 'Devil Victor' },
-        { id: 11, nome: 'José Victor' },
-        { id: 12, nome: 'Nicholas Victor' },
-        { id: 13, nome: 'Dubs Victor' },
-        { id: 14, nome: 'Scrach Victor' },
-        { id: 15, nome: 'Devil Victor' },
-        { id: 16, nome: 'José Victor' },
-        { id: 17, nome: 'Nicholas Victor' },
-        { id: 18, nome: 'Dubs Victor' },
-        { id: 19, nome: 'Scrach Victor' },
-        { id: 20, nome: 'Devil Victor' }
-      ]
+      users: []
     }
+  },
+
+  created () {
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then(response => response.json())
+      .then(json => {
+        this.users = json
+      })
   }
 }
 </script>
