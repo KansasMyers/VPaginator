@@ -1,21 +1,24 @@
-# v-paginator
+# VPaginator
 
-## Project setup
+## Sobre
+VPaginator é um compente para renderizar automaticamente suas tabelas (<table>) de acordo com as propriedades do objeto JSON da lista enviada, mas se quiser escolher os campos, fiquei a vontade também :D
+
+## Instalando as dependências
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Compilando com hot-reload para desenvolvimento
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### Compilando e minificando para produção
 ```
 npm run build
 ```
 
-### Lints and fixes files
+### Rodar Lint e "Consertar" os arquivos
 ```
 npm run lint
 ```

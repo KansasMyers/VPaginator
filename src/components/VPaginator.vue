@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  name: 'Paginator',
+  name: 'VPaginator',
   data () {
     return {
       page: 0

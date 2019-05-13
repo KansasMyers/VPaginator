@@ -1,17 +1,17 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <Paginator :list="itens" :rows="6" :fields="['id', 'nome']" />
+    <VPaginator :list="itens" :rows="6" :fields="['id', 'nome']" />
   </div>
 </template>
 
 <script>
-import Paginator from './components/Paginator.vue'
+import VPaginator from './components/VPaginator.vue'
 
 export default {
   name: 'app',
   components: {
-    Paginator
+    VPaginator
   },
   data () {
     return {
